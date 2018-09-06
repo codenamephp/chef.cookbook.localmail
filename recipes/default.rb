@@ -4,4 +4,7 @@
 #
 # Copyright:: 2018, The Authors, All Rights Reserved.
 #
-# This is a No-Op recipe!
+
+include_recipe 'apt'
+
+package 'postfix'

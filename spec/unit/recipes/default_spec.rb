@@ -7,7 +7,7 @@
 require 'spec_helper'
 
 describe 'codenamephp_localmail::default' do
-  context 'When all attributes are default, on an Ubuntu 16.04' do
+  context 'When all attributes are default' do
     let(:chef_run) do
       runner = ChefSpec::SoloRunner.new
       runner.converge(described_recipe)
@@ -15,6 +15,14 @@ describe 'codenamephp_localmail::default' do
 
     it 'converges successfully' do
       expect { chef_run }.to_not raise_error
+    end
+
+    it 'includes the apt cookbook' do
+      expect(chef_run).to include_recipe('apt')
+    end
+
+    it 'installs postfix from package' do
+      expect(chef_run).to install_package('postfix')
     end
   end
 end
