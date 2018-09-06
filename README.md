@@ -1,4 +1,4 @@
-# Chef Cookbook Gui
+# Chef Cookbook Localmail
 [![Build Status](https://travis-ci.org/codenamephp/chef.cookbook.localmail.svg?branch=dev)](https://travis-ci.org/codenamephp/chef.cookbook.localmail)
 
 Cookbook that installs a local mailserver and mail client for local only mail used during development.
