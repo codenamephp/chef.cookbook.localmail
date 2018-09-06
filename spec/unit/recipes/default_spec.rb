@@ -24,5 +24,9 @@ describe 'codenamephp_localmail::default' do
     it 'installs postfix from package' do
       expect(chef_run).to install_package('postfix')
     end
+
+    it 'installs slypheed mail client from package' do
+      expect(chef_run).to install_package('sylpheed')
+    end
   end
 end

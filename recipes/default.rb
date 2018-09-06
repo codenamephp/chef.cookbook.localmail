@@ -8,3 +8,9 @@
 include_recipe 'apt'
 
 package 'postfix'
+
+# install postfix config
+
+package 'sylpheed'
+
+# install account for localmail
