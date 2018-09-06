@@ -12,7 +12,7 @@ platforms:
   - name: debian-9.3
 
 suites:
-  - name: cinnamon
+  - name: default
     run_list:
       - recipe[codenamephp_localmail::default]
     verifier:
