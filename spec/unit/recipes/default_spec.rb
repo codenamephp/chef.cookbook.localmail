@@ -17,16 +17,33 @@ describe 'codenamephp_localmail::default' do
       expect { chef_run }.to_not raise_error
     end
 
-    it 'includes the apt cookbook' do
-      expect(chef_run).to include_recipe('apt')
+    it 'installs the default jre' do
+      expect(chef_run).to install_package('default-jre')
     end
 
-    it 'installs postfix from package' do
-      expect(chef_run).to install_package('postfix')
+    it 'installs the jar file' do
+      expect(chef_run).to create_remote_file('Download MockMock.jar').with(
+        source: 'https://github.com/tweakers-dev/MockMock/blob/master/release/MockMock.jar?raw=true',
+        path: '/var/opt/MockMock.jar',
+        owner: 'root',
+        group: 'root',
+        mode: 0o755
+      )
     end
 
-    it 'installs slypheed mail client from package' do
-      expect(chef_run).to install_package('sylpheed')
+    it 'installs the init script' do
+      expect(chef_run).to create_template('Manage service startup script').with(
+        source: 'mockmock.erb',
+        path: '/etc/init.d/mockmock',
+        owner: 'root',
+        group: 'root',
+        mode: 0o755
+      )
+    end
+
+    it 'starts and enables the service' do
+      expect(chef_run).to start_service('mockmock')
+      expect(chef_run).to enable_service('mockmock')
     end
   end
 end

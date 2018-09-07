@@ -7,10 +7,26 @@
 
 include_recipe 'apt'
 
-package 'postfix'
+package 'default-jre'
 
-# install postfix config
+remote_file 'Download MockMock.jar' do
+  source node['codenamephp_localmail']['mockmock']['urls']['jar']
+  path node['codenamephp_localmail']['mockmock']['paths']['jar']
+  owner 'root'
+  group 'root'
+  mode 0o755
+  notifies :restart, 'service[mockmock]', :delayed
+end
 
-package 'sylpheed'
+template 'Manage service startup script' do
+  source 'mockmock.erb'
+  path '/etc/init.d/mockmock'
+  owner 'root'
+  group 'root'
+  mode 0o755
+  notifies :restart, 'service[mockmock]', :delayed
+end
 
-# install account for localmail
+service 'mockmock' do
+  action %i[enable start]
+end

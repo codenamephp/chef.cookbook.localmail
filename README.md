@@ -38,4 +38,17 @@ Add the gui cookbook to your runlist, e.g. in a role:
 }
 ```
 
+### Cookbooks
+
+#### Default
+
+The default cookbooks installs the default-jre and downloads [MockMock][mockmock_url] and installs it as a local service. A web ui is started (by default on http://localhost:8085) to view the mail.
+
 ### Attributes
+- `default['codenamephp_localmail']['mockmock']['urls']['jar']` The url to the Mockmock source file, defaults to `'https://github.com/tweakers-dev/MockMock/blob/master/release/MockMock.jar?raw=true'`
+- `default['codenamephp_localmail']['mockmock']['paths']['jar']` The path to where the jar file will be installed, defaults to `'/var/opt/MockMock.jar'`
+- `default['codenamephp_localmail']['mockmock']['ports']['smtp']` The smtp port MockMock will listen to, defaults to `25`
+- `default['codenamephp_localmail']['mockmock']['ports']['web']` The port where the web ui will be listening, defaults to `8085`
+
+
+[mockmock_url]: https://github.com/tweakers-dev/MockMock/
