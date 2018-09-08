@@ -1,5 +1,13 @@
 # Change Log
 
+## [Unreleased](https://github.com/codenamephp/chef.cookbook.localmail/tree/HEAD)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.0...HEAD)
+
+**Merged pull requests:**
+
+- \[RELEASE 1.0.1\] [\#2](https://github.com/codenamephp/chef.cookbook.localmail/pull/2) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [v1.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v1.0.0) (2018-09-08)
 **Merged pull requests:**
 
