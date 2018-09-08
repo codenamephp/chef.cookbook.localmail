@@ -33,7 +33,7 @@ Add the gui cookbook to your runlist, e.g. in a role:
   "chef_type": "role",
   "json_class": "Chef::Role",
   "run_list": [
-	  "recipe[codenamephp_localmail]"
+	  "recipe[codenamephp_localmail::postfix]"
   ]
 }
 ```
@@ -42,13 +42,20 @@ Add the gui cookbook to your runlist, e.g. in a role:
 
 #### Default
 
-The default cookbooks installs the default-jre and downloads [MockMock][mockmock_url] and installs it as a local service. A web ui is started (by default on http://localhost:8085) to view the mail.
+As per usual, the default cookbook is a no-op since it makes it easier to choose the tools by just adding the recipes which causes less concerns for backwards
+compatiblity.
+
+#### Postfix
+
+Installs [postfix][postfix_url] in "local only" mode by preseeding the apt install. It also adds a main.cf.d folder and a make file that reads all .cf files from the folder and combines
+them to the main.cf config so managing config becomes easier.
+
+All mails are relayed to a local user. The user can be chosen via the attributes.
 
 ### Attributes
-- `default['codenamephp_localmail']['mockmock']['urls']['jar']` The url to the Mockmock source file, defaults to `'https://github.com/tweakers-dev/MockMock/blob/master/release/MockMock.jar?raw=true'`
-- `default['codenamephp_localmail']['mockmock']['paths']['jar']` The path to where the jar file will be installed, defaults to `'/var/opt/MockMock.jar'`
-- `default['codenamephp_localmail']['mockmock']['ports']['smtp']` The smtp port MockMock will listen to, defaults to `25`
-- `default['codenamephp_localmail']['mockmock']['ports']['web']` The port where the web ui will be listening, defaults to `8085`
+- `default['codenamephp_localmail']['postfix']['preseed']['main_mailer_type']` The mailer type used when preseeding the postfix install, defaults to `Local only`
+- `default['codenamephp_localmail']['postfix']['preseed']['mailname']` The mailname used when preseeding the postfix install, defaults to `stretch.localdomain`
+- `default['codenamephp_localmail']['postfix']['local']['user_relay']` The user the mails will be relayed to, defaults to `wwwdev@localhost` which means the mails will be relayed to the wwwdev user
 
 
-[mockmock_url]: https://github.com/tweakers-dev/MockMock/
+[postfix_url]: http://www.postfix.org/

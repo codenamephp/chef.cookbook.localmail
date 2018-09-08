@@ -14,8 +14,12 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[codenamephp_localmail::default]
+      - recipe[codenamephp_localmail::postfix]
     verifier:
       inspec_tests:
         - test/smoke/default
     attributes:
+      codenamephp_localmail:
+        postfix:
+          local:
+            user_relay: root@localhost
