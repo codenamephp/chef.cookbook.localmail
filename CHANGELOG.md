@@ -1,7 +1,8 @@
 # Change Log
 
-## [2.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/2.0.0) (2018-09-13)
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.1...2.0.0)
+## [Unreleased](https://github.com/codenamephp/chef.cookbook.localmail/tree/HEAD)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.1...HEAD)
 
 **Implemented enhancements:**
 
