@@ -1,5 +1,13 @@
 # Change Log
 
+## [Unreleased](https://github.com/codenamephp/chef.cookbook.localmail/tree/HEAD)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.1...HEAD)
+
+**Implemented enhancements:**
+
+- Switch to postfix again ... [\#3](https://github.com/codenamephp/chef.cookbook.localmail/issues/3)
+
 ## [v1.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/v1.0.1) (2018-09-08)
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.0...v1.0.1)
 
