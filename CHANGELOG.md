@@ -8,6 +8,10 @@
 
 - Switch to postfix again ... [\#3](https://github.com/codenamephp/chef.cookbook.localmail/issues/3)
 
+**Merged pull requests:**
+
+- \[RELEASE 2.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.localmail/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [v1.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/v1.0.1) (2018-09-08)
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.0...v1.0.1)
 
