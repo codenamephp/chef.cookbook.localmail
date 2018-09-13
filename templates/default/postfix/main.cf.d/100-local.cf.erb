@@ -1,0 +1,8 @@
+
+# Managed by chef
+# Changes will be overwritten
+# This file is supposed to redirect all mails to a single local user
+
+mydestination = pcre:/etc/postfix/mydestinations
+luser_relay = <%= node['codenamephp_localmail']['postfix']['local']['user_relay'] %>
+local_recipient_maps = 
