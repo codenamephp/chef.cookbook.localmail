@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 property :webui_port,
          Integer,
          required: true,

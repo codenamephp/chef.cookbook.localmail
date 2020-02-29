@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'active_support'
 require 'active_support/core_ext'
 
@@ -68,6 +70,7 @@ namespace :integration do
   def kitchen_instances(regexp, config)
     instances = Kitchen::Config.new(config).instances
     return instances if regexp.nil? || regexp == 'all'
+
     instances.get_all(Regexp.new(regexp))
   end
 
