@@ -26,7 +26,6 @@ install:
   - eval "$(chef shell-init bash)"
   - openssl aes-256-cbc -K $encrypted_4035078d8a92_key -iv $encrypted_4035078d8a92_iv -in codenamephp.pem.enc -out codenamephp.pem -d
   - gem install github_changelog_generator
-  - gem install activesupport
 
 script:
   - chef exec rake
