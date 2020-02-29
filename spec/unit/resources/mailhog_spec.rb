@@ -3,6 +3,8 @@
 require 'spec_helper'
 
 describe 'codenamephp_localmail_mailhog' do
+  platform 'debian' # https://github.com/chefspec/chefspec/issues/953
+
   step_into :codenamephp_localmail_mailhog
 
   context 'Install with minimal attributes' do
