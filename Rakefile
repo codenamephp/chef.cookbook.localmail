@@ -20,7 +20,7 @@ def origin_branch
   ENV['TRAVIS_PULL_REQUEST_BRANCH'].presence || ENV['TRAVIS_BRANCH'].presence || 'master'
 end
 
-task default: %w[style unit integration]
+task default: %w[style unit]
 
 namespace :git do
   desc 'Setting up git for pushing'
