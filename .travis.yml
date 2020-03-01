@@ -1,6 +1,6 @@
 language: ruby
 sudo: required
-dist: trusty
+dist: xenial
 
 branches:
   only:
@@ -12,11 +12,12 @@ services: docker
 
 env:
   global:
+    - CHEF_LICENSE=accept
     - secure: "uJctLdrbGASgo3dVBy+8TXtzWw6va6EVK9ObJhaHDMUZC7gbcqq0n7ksZLHcbOdAQFyYUL/NjgM0CexY+mGnC76zVX+2FbN1eNbirdaIsiW5ER3cYRc6dqfktrsfvsq8ENsp+m0LRqbIpgRLVz1ywM8KW9JTrkoyETPAgNvJVAtR3c4ZOS5x1F9+7IyjPGFWqdwXZjYrHTkud0Gb0bsuN1QFitTrMz7esNjkifl5S5ZVNruYoHoPOEt/Lje0H3JOHlh9dP7B84KPBjJeNdf4tVRrpJxg1GuT67zGeCVbAw0fxWJMfQlSpNfJAeUYfT6F2syDbpAS20ChHpSH1PctGlaFTLuq0F5NfcVF2aEyhkOgNiYe968GIt2MJAdYLQCFGKhc2GFD9e/twkQimdL1TlyscVIdWHseJ6/w9FhOEfS5l3GUD3CK+LhfAFIrrYsdYx53rkQqd+UKNhDUyXTRkgHrthe13sv0zyQzspHQLP0eOyGNEHuCOgIzLwyHum2agxkzJOx/kTUiKHFy2USQjYuch1gSnb4j+X8OQJy+KhqG+9YQgvafoUXip4f1CvTd4Sbc7BmLrDIaRgUI94dMe1lSACy6db6I3cTeAtU8Pug8swbh+GU0o1BBREYRX6nh0xNF1zyLiaQ8xuMp80d/vijYuo/zMyZpehRR9qEmMF4="
 addons:
   apt:
     sources:
-    - chef-current-trusty
+    - chef-current-xenial
     packages:
     - chefdk
 
@@ -25,7 +26,6 @@ install:
   - eval "$(chef shell-init bash)"
   - openssl aes-256-cbc -K $encrypted_4035078d8a92_key -iv $encrypted_4035078d8a92_iv -in codenamephp.pem.enc -out codenamephp.pem -d
   - gem install github_changelog_generator
-  - gem install activesupport
 
 script:
   - chef exec rake

@@ -15,6 +15,7 @@ Metrics/BlockLength:
     - '**/*.rake'
     - 'spec/**/*.rb'
     - 'test/smoke/**/*.rb'
+    - 'resources/**/*.rb'
 
 Metrics/ModuleLength:
   Exclude:

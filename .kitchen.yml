@@ -9,17 +9,18 @@ verifier:
   name: inspec
 
 platforms:
-  - name: debian-9.3
+  - name: debian-10
 
 suites:
-  - name: default
+  - name: install-mailhog
     run_list:
-      - recipe[codenamephp_localmail::postfix]
+      - recipe[test::install]
     verifier:
       inspec_tests:
-        - test/smoke/default
-    attributes:
-      codenamephp_localmail:
-        postfix:
-          local:
-            user_relay: root@localhost
+        - test/smoke/mailhog/install_test.rb
+  - name: uninstall-mailhog
+    run_list:
+      - recipe[test::uninstall]
+    verifier:
+      inspec_tests:
+        - test/smoke/mailhog/uninstall_test.rb
