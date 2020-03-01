@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/codenamephp/chef.cookbook.localmail/tree/HEAD)
+## [3.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.0.1) (2020-03-01)
 
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v2.0.0...HEAD)
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v2.0.0...3.0.1)
 
 **Closed issues:**
 
