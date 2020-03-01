@@ -9,6 +9,10 @@
 - Use mailhog [\#11](https://github.com/codenamephp/chef.cookbook.localmail/issues/11)
 - Remove postfix [\#10](https://github.com/codenamephp/chef.cookbook.localmail/issues/10)
 
+**Merged pull requests:**
+
+- \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [v2.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v2.0.0) (2018-09-13)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.1...v2.0.0)
@@ -19,7 +23,6 @@
 
 **Merged pull requests:**
 
-- \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 2.0.0\] [\#7](https://github.com/codenamephp/chef.cookbook.localmail/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 2.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.localmail/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
 
