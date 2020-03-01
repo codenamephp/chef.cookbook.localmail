@@ -30,12 +30,19 @@ describe 'codenamephp_localmail_mailhog' do
         package_name: 'sendmail'
       )
 
-      is_expected.to create_if_missing_remote_file('download mhsendmail').with(
-        source: 'https://github.com/mailhog/mhsendmail/releases/latest/download/mhsendmail_linux_amd64',
+      is_expected.to create_template('install sendmail for mailhog').with(
+        source: 'mailhog/sendmail.erb',
         path: '/usr/sbin/sendmail',
+        cookbook: 'codenamephp_localmail',
         owner: 'root',
         group: 'root',
         mode: '0755'
+      )
+
+      is_expected.to manage_group('add www-data user to docker group').with(
+        append: true,
+        group_name: 'docker',
+        members: ['www-data']
       )
     }
   end
@@ -54,17 +61,15 @@ describe 'codenamephp_localmail_mailhog' do
     }
   end
 
-  context 'Install with custom source uri and install path' do
+  context 'Install with custom install path' do
     recipe do
       codenamephp_localmail_mailhog 'install mailhog' do
-        mhsendmail_source_uri 'https://localhost/source'
-        mhsendmail_install_path '/some/path'
+        sendmail_install_path '/some/path'
       end
     end
 
     it {
-      is_expected.to create_if_missing_remote_file('download mhsendmail').with(
-        source: 'https://localhost/source',
+      is_expected.to create_template('install sendmail for mailhog').with(
         path: '/some/path'
       )
     }
@@ -89,7 +94,7 @@ describe 'codenamephp_localmail_mailhog' do
         repo: 'mailhog/mailhog'
       )
 
-      is_expected.to delete_file('remove mhsendmail').with(
+      is_expected.to delete_file('remove sendmail').with(
         path: '/usr/sbin/sendmail'
       )
     }
@@ -99,12 +104,12 @@ describe 'codenamephp_localmail_mailhog' do
     recipe do
       codenamephp_localmail_mailhog 'uninstall mailhog' do
         action :uninstall
-        mhsendmail_install_path '/some/path'
+        sendmail_install_path '/some/path'
       end
     end
 
     it {
-      is_expected.to delete_file('remove mhsendmail').with(
+      is_expected.to delete_file('remove sendmail').with(
         path: '/some/path'
       )
     }

@@ -1,0 +1,3 @@
+#!/bin/bash
+# Managed by chef
+docker exec -i mailhog sendmail -S localhost:1025 "$@"

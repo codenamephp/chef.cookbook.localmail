@@ -7,7 +7,7 @@ Cookbook that installs a local mailserver and mail client for local only mail us
 
 ### Supported Platforms
 
-- Debian Stretch
+- Debian Buster (probably works with older versions as well)
 
 ### Chef
 
@@ -16,6 +16,7 @@ Cookbook that installs a local mailserver and mail client for local only mail us
 ### Cookbook Depdendencies
 
 - apt
+- codenamephp_docker
 
 ## Usage
 
@@ -25,37 +26,49 @@ Add the cookbook to your Berksfile:
 cookbook 'codenamephp_localmail'
 ```
 
-Add the gui cookbook to your runlist, e.g. in a role:
 
-```json
-{
-  "name": "default",
-  "chef_type": "role",
-  "json_class": "Chef::Role",
-  "run_list": [
-	  "recipe[codenamephp_localmail::postfix]"
-  ]
-}
+Build a wrapper cookbook and use the resources as needed.
+
+### Resources
+
+#### Mailhog
+
+Mailhog is a mail trap for local development. It offers a nice
+web UI and also advanced features like a JSON REST API.
+
+This resource installs mailhog as docker container to avoid any other
+build or runtime dependencies (short of docker of course, but chances are
+docker is already used).
+
+It also install a custom sendmail script that relays the calls to the
+sendmail within the docker container.
+
+##### Properties
+- `webui_port` (Integer): The port on the host whre the web ui will be available at, defaults to `8025`
+- `sendmail_install_path` (String): The path to where the custom sendmail is installed to, defaults to `/usr/sbin/sendmail`
+
+##### Examples
+
+With minimal properties:
+```ruby
+# Install
+codenamephp_localmail_mailhog 'install mailhog'
+
+# Uninstall
+codenamephp_localmail_mailhog 'uninstall mailhog' do
+  action :uninstall
+end
 ```
+With custom port and path:
+```ruby
+# Install
+codenamephp_localmail_mailhog 'install mailhog' do
+  webui_port 1234
+  sendmail_install_path '/some/other/path'
+end
 
-### Cookbooks
-
-#### Default
-
-As per usual, the default cookbook is a no-op since it makes it easier to choose the tools by just adding the recipes which causes less concerns for backwards
-compatiblity.
-
-#### Postfix
-
-Installs [postfix][postfix_url] in "local only" mode by preseeding the apt install. It also adds a main.cf.d folder and a make file that reads all .cf files from the folder and combines
-them to the main.cf config so managing config becomes easier.
-
-All mails are relayed to a local user. The user can be chosen via the attributes.
-
-### Attributes
-- `default['codenamephp_localmail']['postfix']['preseed']['main_mailer_type']` The mailer type used when preseeding the postfix install, defaults to `Local only`
-- `default['codenamephp_localmail']['postfix']['preseed']['mailname']` The mailname used when preseeding the postfix install, defaults to `stretch.localdomain`
-- `default['codenamephp_localmail']['postfix']['local']['user_relay']` The user the mails will be relayed to, defaults to `wwwdev@localhost` which means the mails will be relayed to the wwwdev user
-
-
-[postfix_url]: http://www.postfix.org/
+# Uninstall - webui_port is not relevant here
+codenamephp_localmail_mailhog 'uninstall mailhog' do
+  sendmail_install_path '/some/ohter/path'
+end
+```

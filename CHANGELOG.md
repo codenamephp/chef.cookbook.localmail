@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/codenamephp/chef.cookbook.localmail/tree/HEAD)
 
-[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v2.0.0...HEAD)
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v3.0.1...HEAD)
+
+**Closed issues:**
+
+- Use sendmail from docker instead of extra mhsendmail [\#14](https://github.com/codenamephp/chef.cookbook.localmail/issues/14)
+
+## [v3.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/v3.0.1) (2020-03-01)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v2.0.0...v3.0.1)
 
 **Closed issues:**
 
@@ -11,6 +19,7 @@
 
 **Merged pull requests:**
 
+- \[RELEASE 3.0.1\] [\#13](https://github.com/codenamephp/chef.cookbook.localmail/pull/13) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v2.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v2.0.0) (2018-09-13)
