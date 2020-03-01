@@ -25,7 +25,7 @@ def changelog_user
 end
 
 def changelog_project
-  ENV['CHANGELOG_PROJECT'].presence || 'chef.cookbook.php'
+  ENV['CHANGELOG_PROJECT'].presence || 'chef.cookbook.localmail'
 end
 
 task default: %w[style unit]
