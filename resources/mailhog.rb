@@ -5,11 +5,7 @@ property :webui_port,
          required: true,
          default: 8025,
          description: 'The local port from where the web ui will be available'
-property :mhsendmail_source_uri,
-         required: true,
-         default: 'https://github.com/mailhog/mhsendmail/releases/latest/download/mhsendmail_linux_amd64',
-         description: 'Source from where the mhsendmail will be downloaded'
-property :mhsendmail_install_path,
+property :sendmail_install_path,
          required: true,
          default: '/usr/sbin/sendmail',
          description: 'The path to where the mhsendmail binary will be downloaded, should be an executable path'
@@ -34,18 +30,20 @@ action :install do
     action :purge
   end
 
-  file 'remove mhsendmail' do
-    path new_resource.mhsendmail_install_path
-    action :delete
-  end
-
-  remote_file 'download mhsendmail' do
-    source new_resource.mhsendmail_source_uri
-    path new_resource.mhsendmail_install_path
+  template 'install sendmail for mailhog' do
+    source 'mailhog/sendmail.erb'
+    cookbook 'codenamephp_localmail'
+    path new_resource.sendmail_install_path
     owner 'root'
     group 'root'
     mode '0755'
-    action :create_if_missing
+  end
+
+  group 'add www-data user to docker group' do
+    action :manage
+    append true
+    group_name 'docker'
+    members 'www-data'
   end
 end
 
@@ -62,8 +60,9 @@ action :uninstall do
     repo 'mailhog/mailhog'
   end
 
-  file 'remove mhsendmail' do
-    path new_resource.mhsendmail_install_path
+  file 'remove sendmail' do
+    path new_resource.sendmail_install_path
+
     action :delete
   end
 end
