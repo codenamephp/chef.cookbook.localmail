@@ -15,3 +15,5 @@ platforms:
     driver:
       image: dokken/debian-10
       pid_one_command: /bin/systemd
+      intermediate_instructions:
+        - RUN /usr/bin/apt-get update -y
