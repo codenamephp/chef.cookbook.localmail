@@ -142,11 +142,10 @@ end
 desc 'Run the documentation cycle'
 task documentation: %w[documentation:changelog]
 
-
 namespace :release do
   desc 'Tag and release to supermarket with stove'
   task stove: ['git:setup'] do
-    sh 'git ls-files . --ignored --exclude-standard --others'
+    sh 'git ls-files . --exclude-standard --others'
     sh 'chef exec stove --username codenamephp --key ./codenamephp.pem'
   end
 
