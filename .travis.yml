@@ -27,7 +27,6 @@ install:
 script:
   - chef exec cookstyle .
   - chef exec rspec
-  - chef exec kitchen test
 
 before_deploy:
   - chef exec knife cookbook metadata from file metadata.rb
