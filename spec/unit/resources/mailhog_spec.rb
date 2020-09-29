@@ -13,7 +13,7 @@ describe 'codenamephp_localmail_mailhog' do
     end
 
     it {
-      is_expected.to include_recipe('codenamephp_docker::service')
+      is_expected.to install_codenamephp_docker_service('Install docker')
 
       is_expected.to pull_if_missing_docker_image('pull mailhog image').with(
         repo: 'mailhog/mailhog'
@@ -83,7 +83,7 @@ describe 'codenamephp_localmail_mailhog' do
     end
 
     it {
-      is_expected.to include_recipe('codenamephp_docker::service')
+      is_expected.to install_codenamephp_docker_service('Install docker')
 
       is_expected.to stop_docker_container('remove mailhog container').with(
         container_name: 'mailhog',
