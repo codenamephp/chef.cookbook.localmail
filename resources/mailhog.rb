@@ -11,7 +11,7 @@ property :sendmail_install_path,
          description: 'The path to where the mhsendmail binary will be downloaded, should be an executable path'
 
 action :install do
-  include_recipe 'codenamephp_docker::service'
+  codenamephp_docker_service 'Install docker'
 
   docker_image 'pull mailhog image' do
     action :pull_if_missing
@@ -48,7 +48,7 @@ action :install do
 end
 
 action :uninstall do
-  include_recipe 'codenamephp_docker::service'
+  codenamephp_docker_service 'Install docker'
 
   docker_container 'remove mailhog container' do
     container_name 'mailhog'
