@@ -1,41 +1,51 @@
-language: ruby
-sudo: required
-dist: xenial
+addons:
+  apt:
+    sources:
+      - chef-current-xenial
+    packages:
+      - chef-workstation
+
+if: sender != "github-actions[bot]"
 
 branches:
   only:
-  - master
-  - dev
-  - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
-  
+    - master
+    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
+
 services: docker
 
 env:
   global:
     - CHEF_LICENSE=accept
-    - secure: "uJctLdrbGASgo3dVBy+8TXtzWw6va6EVK9ObJhaHDMUZC7gbcqq0n7ksZLHcbOdAQFyYUL/NjgM0CexY+mGnC76zVX+2FbN1eNbirdaIsiW5ER3cYRc6dqfktrsfvsq8ENsp+m0LRqbIpgRLVz1ywM8KW9JTrkoyETPAgNvJVAtR3c4ZOS5x1F9+7IyjPGFWqdwXZjYrHTkud0Gb0bsuN1QFitTrMz7esNjkifl5S5ZVNruYoHoPOEt/Lje0H3JOHlh9dP7B84KPBjJeNdf4tVRrpJxg1GuT67zGeCVbAw0fxWJMfQlSpNfJAeUYfT6F2syDbpAS20ChHpSH1PctGlaFTLuq0F5NfcVF2aEyhkOgNiYe968GIt2MJAdYLQCFGKhc2GFD9e/twkQimdL1TlyscVIdWHseJ6/w9FhOEfS5l3GUD3CK+LhfAFIrrYsdYx53rkQqd+UKNhDUyXTRkgHrthe13sv0zyQzspHQLP0eOyGNEHuCOgIzLwyHum2agxkzJOx/kTUiKHFy2USQjYuch1gSnb4j+X8OQJy+KhqG+9YQgvafoUXip4f1CvTd4Sbc7BmLrDIaRgUI94dMe1lSACy6db6I3cTeAtU8Pug8swbh+GU0o1BBREYRX6nh0xNF1zyLiaQ8xuMp80d/vijYuo/zMyZpehRR9qEmMF4="
-addons:
-  apt:
-    sources:
-    - chef-current-xenial
-    packages:
-    - chefdk
+    - KITCHEN_LOCAL_YAML=kitchen.dokken.yml
 
 install:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - openssl aes-256-cbc -K $encrypted_4035078d8a92_key -iv $encrypted_4035078d8a92_iv -in codenamephp.pem.enc -out codenamephp.pem -d
-  - gem install github_changelog_generator
 
 script:
-  - chef exec rake
+  - chef exec foodcritic .
+  - chef exec rubocop
+  - chef exec rspec
+  - chef exec kitchen test
 
+before_deploy:
+  - chef exec knife cookbook metadata from file metadata.rb
 deploy:
-  - provider: script
-    on:
-      branch: master
-    skip_cleanup: true
-    script: chef exec rake release
-  
-after_script:
-  - test $TRAVIS_PULL_REQUEST = false && chef exec rake documentation
+  provider: chef_supermarket
+  user_id: "codenamephp"
+  client_key: "codenamephp.pem"
+  category: "Utilities"
+  edge: true
+  run:
+    - chef exec berks upload -e test
+  on:
+    tags: true
+
+notifications:
+  slack:
+    rooms:
+      - secure: "ShxxodvpiMlvgXVWCQ7zL7P0iWPAeUvXad+p5ukBtUAGqUSYJ0s5xvG2nWJXqQBCLflJ3CQ0wsJITRFwapqkFzLffhg3CaD6YgEg8B74r08/dU1nbq0chOD32ZnRDxq+ngA8jT5OjFVBPGXx/Zj7MgnDXeM6gqtwNuVldYRnO/jO9ZwJD9SEBYmjoOFlVuH9AOLLaEdpOt433Gmnxx8RRD7wqQ7WFBRC2E6s3SH5YTd/SvbWN+hUqYZaa8Qk0lEnMo3tO6/rxITh1blhStgaV4wYfkJuihF4SwMxeo4116zrWTtrLxqe4+ueAOKY2Qyk++9L7ROLdbSOpLEgwOwmb1BKYvP9IfpMUuyIGAP90/7Wk3fgRe6N4GcyGH9gcjoV+pZgxd3Vkw1ht+3kKuV2A4sXw04uFM0mOUq/bH4+v2JB04JbYqirKUOGPoQFzeWc2B2P64Sf9VOgc+gnfgV9ERUIlrPgV9scCuSXLf3Vf7bdU2U4WGYrqRaJeRPs3P1fx42bptLB5JrvS+z0EIoE6nxrcAr9y0/AppCMGKlx3KQFlzGrzLCg+oSMXzwxa6uUgyHfdvbOFJjoarSA6EftALrXUpmmbrzTc/y5KFlHjjA59bG6ifNFqxmnzuq2w6UciWKqMt00Od4/3W0oltUg5ndi/aeUrmH0GTNYKrAAJ0M="
+    on_success: never
+    on_failure: always
