@@ -2,11 +2,10 @@
 
 property :webui_port,
          Integer,
-         required: true,
          default: 8025,
          description: 'The local port from where the web ui will be available'
 property :sendmail_install_path,
-         required: true,
+         String,
          default: '/usr/sbin/sendmail',
          description: 'The path to where the mhsendmail binary will be downloaded, should be an executable path'
 
@@ -52,7 +51,7 @@ action :uninstall do
 
   docker_container 'remove mailhog container' do
     container_name 'mailhog'
-    action %i[stop delete]
+    action %i(stop delete)
   end
 
   docker_image 'remove mailhog image' do

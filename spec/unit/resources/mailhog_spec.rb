@@ -87,7 +87,7 @@ describe 'codenamephp_localmail_mailhog' do
 
       is_expected.to stop_docker_container('remove mailhog container').with(
         container_name: 'mailhog',
-        action: %i[stop delete]
+        action: %i(stop delete)
       )
 
       is_expected.to remove_docker_image('remove mailhog image').with(
