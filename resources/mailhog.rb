@@ -22,6 +22,7 @@ action :install do
     repo 'mailhog/mailhog'
     port ['1025:1025', "#{new_resource.webui_port}:8025"]
     restart_policy 'always'
+    volume_driver 'vfs'
   end
 
   package 'remove sendmail package' do
