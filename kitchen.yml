@@ -3,7 +3,7 @@ driver:
   name: vagrant
 
 provisioner:
-   name: chef_solo
+  name: chef_solo
 
 verifier:
   name: inspec
@@ -14,12 +14,14 @@ platforms:
 suites:
   - name: install-mailhog
     run_list:
+      - recipe[test::default]
       - recipe[test::install]
     verifier:
       inspec_tests:
         - test/smoke/mailhog/install_test.rb
   - name: uninstall-mailhog
     run_list:
+      - recipe[test::default]
       - recipe[test::uninstall]
     verifier:
       inspec_tests:
