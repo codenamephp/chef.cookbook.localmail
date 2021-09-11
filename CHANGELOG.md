@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.3.0) (2021-09-11)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.2.0...3.3.0)
+
+**Implemented enhancements:**
+
+- Added unified\_mode [\#21](https://github.com/codenamephp/chef.cookbook.localmail/pull/21) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [3.2.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.2.0) (2020-09-29)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v3.1.0...3.2.0)
@@ -14,7 +22,14 @@
 
 **Merged pull requests:**
 
+- \[CHANGELOG\] 3.2.0 [\#19](https://github.com/codenamephp/chef.cookbook.localmail/pull/19) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[RELEASE 3.2.0\] [\#17](https://github.com/codenamephp/chef.cookbook.localmail/pull/17) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 3.1.0\] [\#15](https://github.com/codenamephp/chef.cookbook.localmail/pull/15) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 3.0.1\] [\#13](https://github.com/codenamephp/chef.cookbook.localmail/pull/13) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 2.0.0\] [\#7](https://github.com/codenamephp/chef.cookbook.localmail/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 2.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.localmail/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
+- \[RELEASE 1.0.1\] [\#2](https://github.com/codenamephp/chef.cookbook.localmail/pull/2) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v3.1.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v3.1.0) (2020-03-01)
 
@@ -23,10 +38,6 @@
 **Closed issues:**
 
 - Use sendmail from docker instead of extra mhsendmail [\#14](https://github.com/codenamephp/chef.cookbook.localmail/issues/14)
-
-**Merged pull requests:**
-
-- \[RELEASE 3.1.0\] [\#15](https://github.com/codenamephp/chef.cookbook.localmail/pull/15) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v3.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/v3.0.1) (2020-03-01)
 
@@ -37,11 +48,6 @@
 - Use mailhog [\#11](https://github.com/codenamephp/chef.cookbook.localmail/issues/11)
 - Remove postfix [\#10](https://github.com/codenamephp/chef.cookbook.localmail/issues/10)
 
-**Merged pull requests:**
-
-- \[RELEASE 3.0.1\] [\#13](https://github.com/codenamephp/chef.cookbook.localmail/pull/13) ([bastianschwarz](https://github.com/bastianschwarz))
-- \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
-
 ## [v2.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v2.0.0) (2018-09-13)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.1...v2.0.0)
@@ -50,18 +56,9 @@
 
 - Switch to postfix again ... [\#3](https://github.com/codenamephp/chef.cookbook.localmail/issues/3)
 
-**Merged pull requests:**
-
-- \[RELEASE 2.0.0\] [\#7](https://github.com/codenamephp/chef.cookbook.localmail/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
-- \[RELEASE 2.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.localmail/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
-
 ## [v1.0.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/v1.0.1) (2018-09-08)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v1.0.0...v1.0.1)
-
-**Merged pull requests:**
-
-- \[RELEASE 1.0.1\] [\#2](https://github.com/codenamephp/chef.cookbook.localmail/pull/2) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v1.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v1.0.0) (2018-09-08)
 
