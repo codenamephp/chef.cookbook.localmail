@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.3.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.3.0) (2021-09-11)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.2.0...3.3.0)
+
+**Implemented enhancements:**
+
+- Added unified\_mode [\#21](https://github.com/codenamephp/chef.cookbook.localmail/pull/21) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [3.2.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.2.0) (2020-09-29)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/v3.1.0...3.2.0)
@@ -14,6 +22,7 @@
 
 **Merged pull requests:**
 
+- \[CHANGELOG\] 3.2.0 [\#19](https://github.com/codenamephp/chef.cookbook.localmail/pull/19) ([github-actions[bot]](https://github.com/apps/github-actions))
 - \[RELEASE 3.2.0\] [\#17](https://github.com/codenamephp/chef.cookbook.localmail/pull/17) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v3.1.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v3.1.0) (2020-03-01)
