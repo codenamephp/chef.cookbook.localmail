@@ -9,7 +9,7 @@ verifier:
   name: inspec
 
 platforms:
-  - name: debian-10
+  - name: debian-11
 
 suites:
   - name: install-mailhog
