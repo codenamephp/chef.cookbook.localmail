@@ -22,3 +22,7 @@ bin/*
 Berksfile.lock
 .zero-knife.rb
 Policyfile.lock.json
+
+/.chef/*
+!/.chef/config.rb
+!/.chef/spork-config.yml

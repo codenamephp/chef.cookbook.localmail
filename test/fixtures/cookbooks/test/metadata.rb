@@ -10,4 +10,3 @@ version '1.0.0'
 supports 'debian'
 
 depends 'codenamephp_localmail'
-depends 'resolver'

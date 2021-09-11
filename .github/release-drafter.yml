@@ -6,3 +6,5 @@ template: |
 exclude-labels:
   - "skip-changelog"
   - "invalid"
+
+commitish: 'release'
