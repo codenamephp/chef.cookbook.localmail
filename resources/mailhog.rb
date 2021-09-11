@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+unified_mode true
+
 property :webui_port,
          Integer,
          default: 8025,

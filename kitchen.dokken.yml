@@ -2,6 +2,9 @@ driver:
   name: dokken
   privileged: true # because Docker and SystemD/Upstart
   chef_version: current
+  volumes: [
+    '/var/lib/docker'
+  ]
 
 transport:
   name: dokken
@@ -9,11 +12,11 @@ transport:
 provisioner:
   name: dokken
   deprecations_as_errors: true
- 
+
 platforms:
-  - name: debian-10
+  - name: debian-11
     driver:
-      image: dokken/debian-10
+      image: dokken/debian-11
       pid_one_command: /bin/systemd
       intermediate_instructions:
         - RUN /usr/bin/apt-get update -y
