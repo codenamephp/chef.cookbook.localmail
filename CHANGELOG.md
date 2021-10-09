@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.4.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.0) (2021-10-09)
+
+[Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.3.0...3.4.0)
+
+**Implemented enhancements:**
+
+- Updated docker version to 9.0 [\#24](https://github.com/codenamephp/chef.cookbook.localmail/pull/24) ([bastianschwarz](https://github.com/bastianschwarz))
+
 ## [3.3.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.3.0) (2021-09-11)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.2.0...3.3.0)
