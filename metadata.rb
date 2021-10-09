@@ -13,4 +13,4 @@ source_url 'https://github.com/codenamephp/chef.cookbook.localmail'
 supports 'debian'
 
 depends 'codenamephp_docker', '~> 3.1'
-depends 'docker', '~>8.0'
+depends 'docker', '~>9.0'
