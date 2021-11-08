@@ -1,11 +1,12 @@
 # Changelog
 
-## [3.4.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.1) (2021-11-02)
+## [3.4.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.1) (2021-11-08)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.4.0...3.4.1)
 
 **Merged pull requests:**
 
+- Bump tubone24/update\_release from 1.2.0 to 1.3.1 [\#27](https://github.com/codenamephp/chef.cookbook.localmail/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump bobheadxi/deployments from 0.6.0 to 0.6.1 [\#26](https://github.com/codenamephp/chef.cookbook.localmail/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
 
 ## [3.4.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.0) (2021-10-09)
