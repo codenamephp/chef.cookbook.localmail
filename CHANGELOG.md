@@ -1,11 +1,12 @@
 # Changelog
 
-## [3.4.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.1) (2021-11-08)
+## [3.4.1](https://github.com/codenamephp/chef.cookbook.localmail/tree/3.4.1) (2021-12-29)
 
 [Full Changelog](https://github.com/codenamephp/chef.cookbook.localmail/compare/3.4.0...3.4.1)
 
 **Merged pull requests:**
 
+- Bump bobheadxi/deployments from 0.6.1 to 0.6.2 [\#28](https://github.com/codenamephp/chef.cookbook.localmail/pull/28) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump tubone24/update\_release from 1.2.0 to 1.3.1 [\#27](https://github.com/codenamephp/chef.cookbook.localmail/pull/27) ([dependabot[bot]](https://github.com/apps/dependabot))
 - Bump bobheadxi/deployments from 0.6.0 to 0.6.1 [\#26](https://github.com/codenamephp/chef.cookbook.localmail/pull/26) ([dependabot[bot]](https://github.com/apps/dependabot))
 
@@ -65,7 +66,6 @@
 
 **Merged pull requests:**
 
-- \[RELEASE 3.0.1\] [\#13](https://github.com/codenamephp/chef.cookbook.localmail/pull/13) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 3.0.0\] [\#12](https://github.com/codenamephp/chef.cookbook.localmail/pull/12) ([bastianschwarz](https://github.com/bastianschwarz))
 
 ## [v2.0.0](https://github.com/codenamephp/chef.cookbook.localmail/tree/v2.0.0) (2018-09-13)
@@ -78,6 +78,7 @@
 
 **Merged pull requests:**
 
+- \[RELEASE 3.0.1\] [\#13](https://github.com/codenamephp/chef.cookbook.localmail/pull/13) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 2.0.0\] [\#7](https://github.com/codenamephp/chef.cookbook.localmail/pull/7) ([bastianschwarz](https://github.com/bastianschwarz))
 - \[RELEASE 2.0.0\] [\#5](https://github.com/codenamephp/chef.cookbook.localmail/pull/5) ([bastianschwarz](https://github.com/bastianschwarz))
 
