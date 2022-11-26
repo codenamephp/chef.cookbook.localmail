@@ -3,6 +3,10 @@
 
 Cookbook that installs a local mailserver and mail client for local only mail used during development.
 
+## Deprecated
+
+This cookbook is now deprecated. There is no replacement.
+
 ## Requirements
 
 ### Supported Platforms
